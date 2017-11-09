@@ -12,7 +12,7 @@ def index(request):
 def home(request):
 	info_dict = {'site': u'自强学堂', 'content': u'各种IT技术教程'}
 	List = map(str, range(100))
-	return render(request, 'home.html',{'info_dict':info_dict,'hesheng':'何生','List':List})
+	return render(request, 'home.html',{'info_dict':info_dict,'hesheng':'何生','List':List,'vars':'65'})
 
 def add(request):
 	a = request.GET.get('a',0)

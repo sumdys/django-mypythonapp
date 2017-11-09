@@ -6,6 +6,7 @@
 {% include 'ad.html' %}
 这里是首页，欢迎光临，{{ hesheng }}
 <p>站点：{{ info_dict.site }} 内容：{{ info_dict.content }}</p>
+自强学堂在名单中
 {% for key, value in info_dict.items %}
 {{ key }}:{{ value }}
 {% endfor%}
@@ -13,4 +14,32 @@
 {% for item in List %}
 {{ item }}{% if not forloop.last %},{% endif %}
 {% endfor %}
+
+<hr/>
+自强学堂在名单中
+<p>
+{% if var >= 90 %}
+成绩优秀，自强学堂你没少去吧！学得不错
+{% elif var >= 80 %}
+成绩良好
+{% elif var >= 70 %}
+成绩一般
+{% elif var >= 60 %}
+需要努力
+{% else %}
+不及格啊，大哥！多去自强学堂学习啊！
+{% endif %}
+</p>
+<hr/>
+{% if 20 in List %}
+自强学堂在名单中
+{% endif %}
+<p>获取当前用户：{{ request.user }}</p>
+{% if request.user.is_authenticated %}
+{{ request.user.username }}，您好！
+{% else %}
+请登陆，这里放登陆链接
+{% endif %}
+<p>当前网址：{{ request.path }}</p>
+<p>获取当前 GET 参数：{{ request.GET.urlencode }}</p>
 {% endblock %}
