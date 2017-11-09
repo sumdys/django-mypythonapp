@@ -18,8 +18,9 @@ from django.contrib import admin
 from website import views as website_views  #new
 
 urlpatterns = [
-    url(r'^$', website_views.index),  #new
+    url(r'^$', website_views.home, name='home'),  #new
     url(r'^add/$',website_views.add, name='add'), # 注意修改了这一行
-    url(r'^add/(\d+)/(\d+)/$',website_views.add2, name='add2'), # 注意修改了这一行
+    url(r'^new_add/(\d+)/(\d+)/$',website_views.add2, name='add2'), # 注意修改了这一行
+    url(r'^add/(\d+)/(\d+)/$', website_views.old_add2_redirect),
     url(r'^admin/', admin.site.urls),
 ]

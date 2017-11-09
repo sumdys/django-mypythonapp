@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}欢迎光临首页{% endblock %}
+
+{% block content %}
+{% include 'ad.html' %}
+这里是首页，欢迎光临，{{ hesheng }}
+<p>站点：{{ info_dict.site }} 内容：{{ info_dict.content }}</p>
+{% for key, value in info_dict.items %}
+{{ key }}:{{ value }}
+{% endfor%}
+<hr/>
+{% for item in List %}
+{{ item }}{% if not forloop.last %},{% endif %}
+{% endfor %}
+{% endblock %}
